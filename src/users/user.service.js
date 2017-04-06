@@ -1,4 +1,5 @@
 const users = {};
+const sql = require('seriate');
 
 function addUser(user, isError = false) {
   return new Promise((resolve, reject) => {
@@ -6,16 +7,34 @@ function addUser(user, isError = false) {
       reject({error: 'no space'});
     }
 
-    users[user.id] = user;
-    resolve();
+    sql.getPlainContext()
+    .step("NewUser", {
+      query: `insert INTO users (user_name) VALUES ('${user.name}')`
+    })
+    .end(function (sets) {
+      resolve(sets)
+    })
+    .error(function (err) {
+      console.error(err);
+      reject(err);
+    });
   })
 }
 
 function getUser(id) {
 
   return new Promise((resolve, reject) => {
-    resolve(users[id]);
-  })
+    sql.getPlainContext()
+    .step("getUser", {
+      query: `select * from users where user_id=${id}`
+    })
+    .end(function (sets) {
+      resolve(sets.getUser)
+    })
+    .error(function (err) {
+      console.error(err);
+      reject(err);
+    });  })
 
 }
 

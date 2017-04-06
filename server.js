@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParse = require('body-parser');
 const app = express();
+const sql = require('seriate');
+
+initDB();
 
 
 app.get('/health-check', (req, res) => {
@@ -21,3 +24,13 @@ app.listen(8081, (err) => {
     console.info('server is up');
   }
 });
+
+function initDB() {
+  sql.setDefault({
+    default: "default",
+    user: "1",
+    password: "1",
+    host: "1",
+    database: "1"
+  });
+}
