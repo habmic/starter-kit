@@ -4,14 +4,15 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "pm2 start ecosystem.config.js && pm2 logs",
+    "stop": "pm2 delete all"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "1.17.1",
     "express": "4.15.2",
+    "pm2": "2.4.4",
     "seriate": "0.9.0"
   }
 }

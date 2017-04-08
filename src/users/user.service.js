@@ -29,12 +29,13 @@ function getUser(id) {
       query: `select * from users where user_id=${id}`
     })
     .end(function (sets) {
-      resolve(sets.getUser)
+      resolve(sets.getUser[0])
     })
     .error(function (err) {
       console.error(err);
       reject(err);
-    });  })
+    });
+  })
 
 }
 

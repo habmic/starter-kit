@@ -3,14 +3,19 @@ const bodyParse = require('body-parser');
 const app = express();
 const sql = require('seriate');
 
+
 initDB();
 
 
 app.get('/health-check', (req, res) => {
-  res.status(200).json({status: "I am alive!"});
+  res.status(200).json({status: "I am alive! 2"});
 });
 
+
 const router = express.Router();
+
+app.use(express.static('./public'));
+
 router.use(bodyParse.json());
 app.use('/api/v1', router);
 
@@ -28,9 +33,9 @@ app.listen(8081, (err) => {
 function initDB() {
   sql.setDefault({
     default: "default",
-    user: "1",
-    password: "1",
-    host: "1",
-    database: "1"
+    user: "node4ever",
+    password: "pb-node123",
+    host: "node-course.chtl0xl7h64i.us-east-1.rds.amazonaws.com",
+    database: "course"
   });
 }

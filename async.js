@@ -48,6 +48,18 @@ function usePromise() {
 
 }
 
-usePromise();
-blockingCalls();
-nonBlocking();
+// usePromise();
+// blockingCalls();
+// nonBlocking();
+
+const fs = require("fs");
+
+fs.readFile("file1.txt", (err, result) => {
+  if (err) {
+    console.error(err)
+  } else {
+    console.log(result);
+  }
+});
+
+var file = fs.readFileSync("file1.txt");
