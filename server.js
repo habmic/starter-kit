@@ -38,4 +38,39 @@ function initDB() {
     host: "node-course.chtl0xl7h64i.us-east-1.rds.amazonaws.com",
     database: "course"
   });
+  //
+  // var Sequelize = require('sequelize');
+  // var sequelize = new Sequelize('couse', 'node4ever', 'pb-node123', {
+  //   host: 'course.cbyydzmmb2nq.eu-central-1.rds.amazonaws.com',
+  //   dialect: 'mysql',
+  //   define: {
+  //     timestamps: false
+  //   },
+  //   pool: {
+  //     max: 5,
+  //     min: 1,
+  //     idle: 10000
+  //   },
+  // });
+  //
+  // const usersModel = sequelize.define('users', {
+  //   id: {type: Sequelize.INTEGER, primaryKey: true},
+  //   name: Sequelize.STRING
+  // }, {
+  //   tableName: 'users'
+  // });
+  //
+  //
+  // sequelize.sync()
+  // .then(() => {
+  //   usersModel.find({where: {name: 'alon'}}).then((result) => {
+  //     console.log(result.name)
+  //   }).catch((err) => {
+  //     console.error(err)
+  //   })
+  // })
+  // .catch((err) => {
+  //   console.error(err);
+  // });
+
 }
